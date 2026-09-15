@@ -51,9 +51,44 @@ git clone https://github.com/KawasakiTakayuki/ycyx-skills.git ~/.claude/skills/y
 ln -s ~/.claude/skills/ycyx-skills/skills/ycyx-artical ~/.claude/skills/ycyx-artical
 ```
 
+### 安装 Slash Command（推荐）
+
+仓库内置自定义命令模板，部署后可用 `/ycyx-artical [任务]` 显式调用：
+
+```bash
+# 用户级安装（推荐）
+mkdir -p ~/.claude/commands
+ln -s /Volumes/Samsung980pro/AI/ycyx-artical/.claude/commands/ycyx-artical.md \
+      ~/.claude/commands/ycyx-artical.md
+
+# 或复制文件
+cp /Volumes/Samsung980pro/AI/ycyx-artical/.claude/commands/ycyx-artical.md \
+   ~/.claude/commands/
+```
+
+**使用示例**：
+- `/ycyx-artical 公众号 新闻纪实 北流中学千人研学团来访`
+- `/ycyx-artical 视频号 招募 寒假特别营`
+- `/ycyx-artical 公众号 节日祝福 端午`
+
+### 自然语言自动触发（无需配置）
+
+Claude Code 会读取 `SKILL.md` 的 `description` 字段。用户输入包含以下关键词时自动激活：
+
+- 品牌名：`玉柴研学` / `玉柴研学文旅` / `玉柴文旅` / `玉柴机器` / `玉柴股份`
+- 英文 ID：`ycyx` / `ycyx-artical`
+- 平台：`玉柴公众号` / `玉柴视频号`
+- 业务词：`工业研学` / `家企连心` / `研学文旅` / `玉柴夏令营` / `玉柴黑灯工厂` / `内燃机研学`
+
+**示例触发句**：
+- "用 ycyx-artical 帮我写一篇北流中学千人研学团的视频号文案"
+- "玉柴研学｜公众号｜教师节祝福推文"
+- "改写这条玉柴研学文案"
+
 ### 在自定义智能体中使用
 
 每个 Skill 的 `SKILL.md` 是入口；详细规则在 `references/`。参见各 Skill 自身的 README 与文档。
+任务说明书的「八、AI 智能体配置（精简版）」内置可直接复制粘贴到任意智能体的紧凑版提示词。
 
 ## 四、添加新 Skill
 
